@@ -36,3 +36,6 @@ terraform.rc
 
 # Containers informations file
 containers.txt
+
+# Volume backup folder
+volume_backup/*
