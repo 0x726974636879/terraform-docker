@@ -6,7 +6,7 @@ This Terraform project allows for easy deployment of Docker containers for Node-
 
 - Terraform 0.14.x or higher installed on your local machine.
 - An AWS account with the necessary permissions to create and manage resources.
-- Docker 23.x.x or higher installed on your local machine.
+- Docker 23.x.x or higher installed on your local machine ([documentation here](https://docs.docker.com/get-docker)).
 - 2 terraform worspace (`dev` & `prod`)
 - A `.tfvars` variable file at the root of the project containing the variables needed for your environment.
 - `tflint` installed on your local machine if you plan to make modifications to the infrastructure. `tflint` is an optional tool that checks the quality of your Terraform code and reports potential errors, ([documentation here](https://github.com/terraform-linters/tflint)).
