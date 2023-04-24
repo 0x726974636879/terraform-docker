@@ -7,6 +7,7 @@ This Terraform project allows for easy deployment of Docker containers for Node-
 - Terraform 0.14.x or higher installed on your local machine.
 - An AWS account with the necessary permissions to create and manage resources.
 - Docker 23.x.x or higher installed on your local machine.
+- 2 terraform worspace (`dev` & `prod`)
 - A `.tfvars` variable file at the root of the project containing the variables needed for your environment.
 - `tflint` installed on your local machine if you plan to make modifications to the infrastructure. `tflint` is an optional tool that checks the quality of your Terraform code and reports potential errors, ([documentation here](https://github.com/terraform-linters/tflint)).
 
@@ -36,6 +37,19 @@ ext_port = {
   }
 }
 ```
+Constraints:
+* nodered:
+    * internal port must be 1880
+    * dev, each external port must be superior or equal to 1980 and inferior to 3100.
+    * prod, each external port must be superior or equal to 1880 and inferior to 1980.
+* infludb:
+    * internal port must be 8086
+    * dev - each external port must be superior or equal to 8186 and inferior to 65535.
+    * prod - each external port must be superior or equal to 8086 and inferior to 8186.
+* graphana:
+    * internal port must be 3000
+    * dev - each external port must be superior or equal to 3100 and inferior to 8085.
+    * prod - each external port must be superior or equal to 3000 and inferior to 3100.
 
 These port configurations are used to deploy Docker containers for the Node-RED, InfluxDB, and Graphana services on an infrastructure. The internal ports are the ports used by the containers themselves, while the external ports are the ports used to access the services from outside the containers.
 
