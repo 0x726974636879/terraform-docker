@@ -26,13 +26,13 @@ resource "docker_container" "container" {
 
   provisioner "local-exec" {
     when       = create
-    command    = "echo '${self.name}: ${self.network_data[0].ip_address}:${self.ports[0].external}' >> ${path.cwd}/../containers.txt"
+    command    = "echo '${self.name}: ${self.network_data[0].ip_address}:${self.ports[0].external}' >> ${path.cwd}/containers.txt"
     on_failure = fail
   }
 
   provisioner "local-exec" {
     when       = destroy
-    command    = "rm -f ${path.cwd}/../containers.txt && echo 'containers.txt DELETED'"
+    command    = "rm -f ${path.cwd}/containers.txt && echo 'containers.txt DELETED'"
     on_failure = continue
   }
 }
